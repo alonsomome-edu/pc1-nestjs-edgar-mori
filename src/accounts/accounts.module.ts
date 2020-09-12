@@ -6,4 +6,11 @@ import { AccountsService } from './command/application/service/accounts.service'
   controllers: [AccountsController],
   providers: [AccountsService],
 })
-export class AccountsModule {}
+export class AccountsModule {
+
+  constructor(
+    public id: string,
+    public accountnumber: string,
+  ) {}
+
+}
