@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { AccountTypeOrm } from 'src/accounts/command/infra/persistence/typeorm/entities/account.typeorm';
 import { Repository, Transaction, TransactionRepository } from 'typeorm';
 import { PerformTransfer } from '../command/application/commands/perform.transfer';
@@ -58,7 +58,7 @@ export class TransactionsController {
 
   @Get('getTransactions')
   @Transaction()
-  performDeposit(
+  GetTransactions(
     @Body() performDepositRequestDto: PerformDepositRequestDto,
     @TransactionRepository(TransactionTypeOrm)
     transactionRepository: Repository<TransactionTypeOrm>,
